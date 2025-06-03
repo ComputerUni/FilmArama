@@ -56,10 +56,22 @@ async function filmArama() {
         btn.onmouseover = function () {
           btn.style.backgroundColor = "#5848e5";
         };
-        
+
         btn.onmouseleave = function () {
           btn.style.backgroundColor = "#6C63FF";
         };
+
+        btn.addEventListener("click", () => {
+          let favoriler = JSON.parse(localStorage.getItem("favoriler")) || [];
+          const varMi = favoriler.some((f) => f.Title === film.Title);
+          if (!varMi) {
+            favoriler.push(film);
+            localStorage.setItem("favoriler", JSON.stringify(favoriler));
+            alert(`${film.Title} favorilere eklendi.`);
+          } else {
+            alert(`${film.Title} zaten favorilerde.`);
+          }
+        });
 
         div.className = "film-item";
         div.textContent = `Film İsmi: ${film_Ad}`;
@@ -89,18 +101,18 @@ function toggleDarkMode() {
   document.body.classList.toggle("dark-mode");
 }
 
-function favorilereEkle(film){
-  filmler.push(film);
+function favorileriYukle(){
+  const favoriler = JSON.parse(localStorage.getItem("favoriler")) || [];
   const favoriContainer = document.querySelector(".c-2");
-  
-  const div = document.createElement("div");
-  div.className = "favori-item";
-  div.style.color = "white";
-  div.style.marginTop = "5px";
-  div.textContent = `${film.Title} (${film.Year})`;
 
-  favoriContainer.appendChild(div);
+  favoriler.forEach((film) => {
+    const div = document.createElement("div");
+    div.className = "favori-item";
+    div.style.color = "white";
+    div.style.marginTop = "5px";
+    div.textContent = `${film.Title} (${film.Year})`;
+    favoriContainer.appendChild(div);
+  });
 }
 
-
-
+window.onload = favorileriYukle;
