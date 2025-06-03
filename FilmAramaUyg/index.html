@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <button type="button" onclick="toggleDarkMode()" class="dark-toggle">🌙 / ☀</button>
+    <div class="container">
+        <div class="c-1">
+          <form class="form-1">
+              <legend>Film Arama ve Listeleme</legend>
+              <div class="form-group">
+                <input type="text" class="film" placeholder="Film adı girin...">
+              </div>
+              <div class="form-group">
+                <input type="button" onclick="filmArama()" value="Ara">
+              </div>
+              <div class="film-list">
+                <div class="loading-spinner" style="display: none;"></div>
+              </div>
+          </form>
+          
+        </div>
+        <div class="c-2">
+          <h2>Favoriler Listesi</h2>
+        </div>
+      </div>
+      <script src="app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,208 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(270deg, #ff6ec4, #7873f5, #42e695, #fcb045);
+    background-size: 800% 800%;
+    animation: gradientBG 15s ease infinite;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  @keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .container {
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    width: 90%;
+    max-width: 1000px;
+    height: 80vh;
+    display: flex;
+    gap: 30px;
+    padding: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  }
+
+  .c-1, .c-2 {
+    flex: 1;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.2);
+    overflow-y: auto;
+  }
+
+  .c-1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  legend {
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-align: center;
+    color: #333;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .form-group label {
+    font-weight: 600;
+  }
+
+  .form-group input[type="text"] {
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    background-color: #fff;
+  }
+
+  .form-group input[type="button"] {
+    padding: 10px;
+    background-color: #5a67d8;
+    color: black;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .form-group input[type="button"]:hover {
+    background-color: #434190;
+  }
+
+  .film-list {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+  }
+
+  .film-item {
+    padding: 8px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+
+  .film-item strong {
+    font-size: 1rem;
+    color: #333;
+  }
+
+  h2 {
+    color: #222;
+    margin-bottom: 10px;
+  }
+
+  .loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    border-top: 5px solid #5a67d8;
+    border-radius: 50%;
+    animation: spin 3s linear infinite;
+    margin: 0 auto;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  body.dark-mode {
+    background: linear-gradient(270deg, #1f1f1f, #2c2c2c, #3a3a3a, #1a1a1a);
+    color: #f1f1f1;
+  }
+  
+  body.dark-mode .container {
+    background-color: rgba(30, 30, 30, 0.5);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  }
+  
+  body.dark-mode .c-1,
+  body.dark-mode .c-2 {
+    background-color: rgba(50, 50, 50, 0.5);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.4);
+  }
+  
+  body.dark-mode input[type="text"] {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  body.dark-mode input[type="button"] {
+    background-color: #444;
+    color: white;
+  }
+  
+  body.dark-mode .film-item {
+    background-color: rgba(80, 80, 80, 0.9);
+    color: #fff;
+  }
+  
+  body.dark-mode h2,
+  body.dark-mode legend {
+    color: #fff;
+  }
+
+  .dark-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 16px;
+    border-radius: 10px;
+    background-color: #ffffffcc;
+    color: #333;
+    border: none;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+  }
+  
+  .dark-toggle:hover {
+    background-color: #e0e0e0;
+  }
+  
+  body.dark-mode .dark-toggle {
+    background-color: #222;
+    color: #fff;
+  }
+  
+  body.dark-mode .dark-toggle:hover {
+    background-color: #444;
+  }
+  
+  
+  
