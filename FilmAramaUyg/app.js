@@ -107,12 +107,39 @@ function favorileriYukle(){
 
   favoriler.forEach((film) => {
     const div = document.createElement("div");
+    const btn = document.createElement("button");
+    div.style.display = "flex";
+    div.style.flexDirection = "row";
+    div.style.alignItems = "center";
+    div.style.justifyContent = "space-between";
+    btn.className = "favori-btn";
+    btn.style.color = "black";
+    btn.style.backgroundColor = "yellow";
+    btn.style.borderRadius = "5px";
+    btn.style.padding = "3px 6px";
+    btn.textContent = "Favorilerden Sil";
+    btn.style.border = "none";
     div.className = "favori-item";
     div.style.color = "white";
     div.style.marginTop = "5px";
     div.textContent = `${film.Title} (${film.Year})`;
     favoriContainer.appendChild(div);
+    div.appendChild(btn);
+
+    btn.addEventListener('click', () =>{
+      let silinecekFilm = favoriler.findIndex((f) => f.Title === film.Title && f.Year === film.Year);
+      if(silinecekFilm !== -1){
+        let silinen = favoriler[silinecekFilm];
+        favoriler.splice(silinecekFilm,1);
+        localStorage.setItem("favoriler", JSON.stringify(favoriler));
+        alert(`${silinen.Title} isimli kitap silinmiştir.)`);
+      }
+    })
+
+
   });
 }
 
 window.onload = favorileriYukle;
+
+
